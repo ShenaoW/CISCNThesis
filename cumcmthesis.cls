@@ -512,11 +512,11 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
 	{-3.25ex\@plus -1ex \@minus -.2ex}%
 	{1.5ex \@plus .2ex}%
-	{\normalfont\large\bfseries}}
+	{\normalfont\large\bfseries\heiti\zihao{4}}}
 \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
 	{-3.25ex\@plus -1ex \@minus -.2ex}%
 	{1.5ex \@plus .2ex}%
-	{\normalfont\normalsize\bfseries}}
+	{\normalfont\normalsize\bfseries\heiti\zihao{-4}}}
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
 	{3.25ex \@plus1ex \@minus.2ex}%
 	{-1em}%
@@ -723,15 +723,15 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 
 %设置目录格式
-\phantomsection\addcontentsline{toc}{section}{摘要}\tolerance=500 %将摘要放进目录
-\phantomsection\addcontentsline{toc}{section}{Abstract}\tolerance=500 %将摘要放进目录 
+\phantomsection\addcontentsline{toc}{section}{\heiti \zihao{4} 摘要}\tolerance=500 %将摘要放进目录
+%\phantomsection\addcontentsline{toc}{section}{\zihao{4} Abstract}\tolerance=500 %将摘要放进目录 
 % 节的目录格式
- \titlecontents{section}[0pt]{\vspace{2mm}\bfseries}
+ \titlecontents{section}[0pt]{\vspace{2mm} \heiti \zihao{4}}
  {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
 % % 小节的目录格式
- \titlecontents{subsection}[30pt]{\song}
+ \titlecontents{subsection}[30pt]{\song\zihao{5}}
  {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
- \titlecontents{subsubsection}[55pt]{\song}
+ \titlecontents{subsubsection}[55pt]{\song\zihao{5}}
  {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
 
 % 上标文献
