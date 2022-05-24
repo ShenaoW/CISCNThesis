@@ -5,13 +5,18 @@
 
 为了适配全国大学生信息安全竞赛作品报告的官方Word版本格式，我在CUMCMThesis的基础上进行了如下调整：
 
-- 论文封面页与官方模板保持一致，修改\titlename，\email等内容后\maketitle即可自动生成封面
-- 添加并修改目录格式
+- 论文封面页与官方模板保持一致，修改\titlename，\email等内容后\maketitle即可生成封面页
+
+- 添加目录，修改目录格式使其更美观紧凑（Updated on May 24）
+
 - 添加中英文摘要及关键词
 
 - 修改section标题格式，采用 第X章 的格式，并修改为黑体三号字
 
 - 正文采用宋体 小四 1.5倍行距
+
+- 添加页眉页脚，图表目录（Updated on May 24）
+
 - 其余格式（图片，三线表，公式，参考文献）请参考CUMCMThesis exmple https://github.com/latexstudio/CUMCMThesis/blob/master/example.pdf
 
 特别鸣谢：CUMCMThesis项目：https://github.com/latexstudio/CUMCMThesis
