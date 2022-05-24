@@ -1,43 +1,83 @@
 \documentclass{cumcmthesis}
-%\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页，电子版提交的时候使用。
+%\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页。
 
 %声明：本模板基于CUMCMThesis项目修改而来，适用于全国大学生信息安全竞赛作品赛
 %仅供学习交流使用，侵删
 %author：ShenaoW from XDU SCE
 %cooperator：PoliScope项目组
 %email：shenaowang@foxmail.com
-%date：2022.05.10
+%date：2022.05.24
 
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{url}   % 网页链接
 \usepackage{subcaption} % 子标题
+\usepackage{colortbl}
+\usepackage{color}
+\definecolor{tabcolor}{RGB}{42, 110, 63} % 这里就是我们怎么定义我们的表格的线宽颜色
+% 伪代码
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithmicx,algorithm}
+% 页眉页脚
+\usepackage{lastpage}
+\usepackage{fancyhdr} % 导入fancyhdr包
+\pagestyle{fancy}
+% 图表、公式按章节编号
+\usepackage{amsmath}
+\numberwithin{equation}{section} % 公式按章节编号
+\numberwithin{figure}{section} % 图按章节编号
+\numberwithin{table}{section} % 表按章节编号
 
-%\title{全国大学生数学建模竞赛编写的 \LaTeX{} 模板}
-%\tihao{A}
-%\baominghao{4321}
-%\schoolname{XX大学}
-%\membera{ }
-%\memberb{ }
-%\memberc{ }
-%\supervisor{ }
 
-\titlename{PoliScope：安卓隐私政策与权限调用的合规性检测}
+
+% 设置封面页内容
+\titlename{PoliScope：安卓应用隐私政策与权限调用一致性的合规检测}
 \email{shenaowang@foxmail.com}
 \yearinput{2022}
 \monthinput{05}
-\dayinput{10}
+\dayinput{24}
+
+% 页眉设置
+\fancyhead[L]{}
+\fancyhead[R]{}
+\fancyhead[C]{\zihao{-5} PoliScope：安卓应用隐私政策与权限调用一致性的合规检测}
+% 页脚设置
+%\fancyfoot[L]{左页脚}
+\fancyfoot[C]{\zihao{-5} 第\thepage 页 \enspace 共 \pageref{LastPage} 页} % 页码
+%\fancyfoot[R]{右页脚}
+\renewcommand{\headrulewidth}{0.5pt} % 页眉分隔线宽度0.5磅
+%\renewcommand{\footrulewidth}{0.5pt}  % 页脚分隔线宽度0.5磅
 
 \begin{document}
- \maketitle
+	
+% 将\usepackage{ulem}宏包中的\emph{}还原为斜体
+\normalem
+
+% 生成封面页和填写说明页	
+\maketitle
  
- %目录
- \newpage
- \thispagestyle{empty}
- \tableofcontents
- \newpage
+% 生成目录
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+ 
+% 生成图目录
+\thispagestyle{empty}
+\listoffigures
+\newpage
+
+% 生成表目录
+\thispagestyle{empty}
+\listoftables
+\newpage
+
+% 从此处开始编页
+\setcounter{page}{1}
  
 %中文摘要
 \begin{cnabstract}
+	
+（请简要说明创作本作品之动机、功能、特性、创新处、实用性）
 
 	
 \cnkeywords{隐私合规 \quad 命名实体识别 \quad 静态分析 \quad 动态分析}
@@ -47,40 +87,96 @@
 \begin{enabstract}
 
 
-	
 \enkeywords{Privacy Compliance \quad NER \quad Static Analysis \quad Dynamic Analysis}
 \end{enabstract}
 
 \section{作品概述}
-\subsection{研究背景}
-\subsection{研究现状}
-\subsection{特色描述}
-\subsection{应用前景}
 
+（建议包括：背景分析、相关工作、特色描述及应用前景分析等） 
+
+\subsection{背景分析}
+
+\subsection{相关工作}
+
+\subsection{研究目标}
+
+\subsection{特色描述}
+
+\subsection{应用前景分析}
+
+\newpage
 
 \section{作品设计与实现}
-\subsection{系统方案设计}
-\subsection{系统关键技术}
-\subsection{系统实现}
-\subsection{系统功能与指标}
+
+（建议包括系统方案、实现原理、硬件框图、软件流程、功能、指标等）
+
+\begin{table}[htbp]\zihao{5}
+%\begin{table}[htbp]\small
+	\centering
+	\caption{一个简单的表格示例}
+	%	\arrayrulecolor{tabcolor}
+	\begin{tabular}{cccc}
+		\toprule[1pt]
+		\toprule[1pt]
+		\textbf{实体标签} & \textbf{实体名称} & \textbf{实体举例} & \textbf{实体描述}\\
+		\midrule
+		\midrule
+		CALENDAR & 日历权限组 & 设备日历信息、读取日历 & 读/写/访问日历等权限 \\
+		\hline
+		CAMERA & 相机权限组 & 拍摄照片、访问摄像头 & 调用相机相关权限 \\	
+		\hline
+		CONTACTS & 联系人权限组 & 查看通讯录、账户列表 & 读/写通讯录、账户列表等 \\
+		\hline
+		LOCATION & 位置权限组 & 定位服务、基站定位 & 获取粗略/精确位置等权限 \\
+		\hline
+		MICROPHONE & 麦克风权限组 & 录音，设备麦克风 & 访问麦克风及音频录制等权限 \\
+		\hline
+		PHONE & 手机状态权限组 & IDFA、SIM卡序列号 & 获取设备状态、通话记录等 \\
+		\hline
+		SENSORS & 传感器权限组 & 步数统计、运动与健康 & 访问设备传感器相关权限 \\
+		\hline
+		SMS & 短信权限组 & 短信授权、发送短信 & 读/写短信相关权限 \\
+		\hline
+		STORAGE & 存储权限组 & 访问相册、外部存储 & 读/写存储空间相关权限 \\
+		\bottomrule[1pt]
+		\bottomrule[1pt]
+	\end{tabular}
+	\label{tab:实体标签}%
+\end{table}%
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.85\linewidth]{ BiLSTM-CRF }
+	\caption{ 图片示例 }
+	\label{fig:BiLSTM-CRF}
+\end{figure}
+
+\newpage
 
 \section{作品测试与分析}
-\subsection{测试方案}
-\subsection{测试环境与设备}
-\subsection{系统功能测试}
-\subsection{系统性能测试}
-\section{创新性说明}
-\section{总结与展望}
 
+（建议包括测试方案、测试环境搭建、测试设备、测试数据、结果分析等）
+
+
+\newpage
+
+\section{创新性说明}
+
+（本部分内容主要说明作品的创新性）
+
+\newpage
+
+\section{总结}
+
+\newpage
 
 %参考文献
 \begin{thebibliography}{9}%宽度9
-    \bibitem[1]{liuhaiyang2013latex}
-    刘海洋.
-    \newblock \LaTeX {}入门\allowbreak[J].
-    \newblock 电子工业出版社, 北京, 2013.
-    \bibitem[2]{mathematical-modeling}
-    全国大学生数学建模竞赛论文格式规范 (2020 年 8 月 25 日修改).
+	\setlength{\itemsep}{-1mm}  %% 表示参考文献间距为行间距
+	
+	\bibitem{工信部}工业和信息化部. 互联网和相关服务业运行情况 [EB/OL]. [2022-04-29]. https://www.miit.gov.cn/gxsj/tjfx/hlw/index.html.
+    \bibitem{中消协}中国消费者协会. 100款App个人信息收集与隐私政策测评报告 [EB/OL]. [2018-11-28]. https://cca.cn/jmxf/detail/28310.html.
+    \bibitem{FlowDroid}Arzt S, Rasthofer S, Fritz C, et al. Flowdroid: Precise context, flow, field, object-sensitive and lifecycle-aware taint analysis for android apps[J]. Acm Sigplan Notices, 2014, 49(6): 259-269.
 \end{thebibliography}
 
 \newpage
@@ -169,5 +265,38 @@
 %D=dd(1,:);
 % \end{lstlisting}
 %\end{appendices}
+
+%算法模板
+%\begin{algorithm}[t]
+%	\caption{algorithm caption} %算法的名字
+%	\hspace*{0.02in} {\bf Input:} %算法的输入， \hspace*{0.02in}用来控制位置，同时利用 \\ 进行换行
+%	input parameters A, B, C\\
+%	\hspace*{0.02in} {\bf Output:} %算法的结果输出
+%	output result
+%	\begin{algorithmic}[1]
+	%		\State some description % \State 后写一般语句
+	%		\For{condition} % For 语句，需要和EndFor对应
+	%		\If{condition} % If 语句，需要和EndIf对应
+	%		\Else
+	%		\EndIf
+	%		\EndFor
+	%		\While{condition} % While语句，需要和EndWhile对应
+	%		a += 1
+	%		\EndWhile
+	%		\State\Return result
+	%	\end{algorithmic}
+%\end{algorithm}
+
+%代码块模板
+%\begin{lstlisting}[language=python]
+%app_tuple_list = []
+%try:
+%browser.get(url)
+%soup = BeautifulSoup(browser.page_source, features='lxml')
+%except requests.HTTPError:
+%return "There are some errors when get the download page!"
+%all_app_tag = soup.find('ul', {"class": "applist", "id": "all-applist"})
+%app_tag = all_app_tag.next
+%\end{lstlisting}
 
 \end{document} 

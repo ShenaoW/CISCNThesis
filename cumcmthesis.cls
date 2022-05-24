@@ -78,10 +78,14 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %\RequirePackage{tikz}
 %\usetikzlibrary{snakes}
 % 下划线
-\RequirePackage{ulem}
+%\RequirePackage{ulem}
+
+% 自定义章节编号
+\RequirePackage{titlesec}
 
 % 字图与子标题
 \RequirePackage{subcaption}
+%\RequirePackage[titles]{tocloft}
 \RequirePackage[titles]{tocloft}
 %\renewcommand{\cftdot}{$\cdot$}
 %\renewcommand{\cftsecdotsep}{1.5}
@@ -148,7 +152,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{cleveref}
 %% Document Layout
 % 页面布局与行距
-\geometry{top=25.4mm,bottom=25.4mm,left=28.6mm,right=25.9mm}
+\geometry{top=26.4mm,bottom=25.4mm,left=28.6mm,right=25.9mm}
 %\renewcommand*{\baselinestretch}{1.38}
 \renewcommand*{\baselinestretch}{1.52}
 
@@ -157,17 +161,18 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \let\mcm@endoldtabular\endtabular
 \renewenvironment{tabular}%
 	{\bgroup%
-	\renewcommand{\arraystretch}{1.5}%
+	\renewcommand{\arraystretch}{1}%
 	\mcm@oldtabular}%
 	{\mcm@endoldtabular\egroup}
+	
 % 每行缩进两个汉字
 \setlength\parindent{2em}
 % 设置字体
 \setmainfont{Times New Roman}
 %\setmonofont{Courier New}
 \setsansfont{Arial}
-\setCJKfamilyfont{kai}[AutoFakeBold]{simkai.ttf}
-\newcommand*{\kai}{\CJKfamily{kai}}
+%\setCJKfamilyfont{kai}[AutoFakeBold]{simkai.ttf}
+%\newcommand*{\kai}{\CJKfamily{kai}}
 \setCJKfamilyfont{song}[AutoFakeBold]{SimSun}
 %\setCJKfamilyfont{song}{SimSun}
 \newcommand*{\song}{\CJKfamily{song}}
@@ -364,7 +369,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   	{\zihao{1}\heiti \textbf{2022年全国大学生信息安全竞赛} \par}%
   	{\zihao{1}\heiti \textbf{作品报告} \par}%
   	\vspace{6.2cm}
-  	{\zihao{3}\heiti \textbf{作品名称：\uline{\hfill \mcm@tokens@titlename \hfill}} \par}%
+  	{\zihao{3}\heiti \textbf{作品名称：\fontsize{13pt}{\baselineskip}\selectfont \uline{\hfill \mcm@tokens@titlename \hfill}} \par}%
   	{\zihao{3}\heiti \textbf{电子邮箱：\uline{\hfill \mcm@tokens@email \hfill}} \par}%
   	{\zihao{3}\heiti \textbf{提交日期：\uline{\hfill \mcm@tokens@yearinput.\mcm@tokens@monthinput.\mcm@tokens@dayinput \hfill}} \par}%
 
@@ -427,10 +432,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 	{\zihao{3}\heiti 填写说明 \par}%
 \end{center}
 {\zihao{-4}\song 1.\quad 所有参赛项目必须为一个基本完整的设计。作品报告书旨在能够清晰准确地阐述（或图示）该参赛队的参赛项目（或方案）。 \par}%
-{\zihao{-4}\song 2. \quad 作品报告采用A4纸撰写。除标题外，所有内容必需为宋体、小四号字、1.5倍行距。 \par}%
-{\zihao{-4}\song 3. \quad 作品报告中各项目说明文字部分仅供参考，作品报告书撰写完毕后，请删除所有说明文字。(本页不删除) \par}%
-{\zihao{-4}\song 4. \quad 作品报告模板里已经列的内容仅供参考，作者可以在此基础上增加内容或对文档结构进行微调。 \par}%
-{\zihao{-4}\song 5. \quad 为保证网评的公平、公正，作品报告中应避免出现作者所在学校、院系和指导教师等泄露身份的信息。 \par}%
+{\zihao{-4}\song 2.\enspace 作品报告采用A4纸撰写。除标题外，所有内容必需为宋体、小四号字、1.5倍行距。 \par}%
+{\zihao{-4}\song 3.\enspace 作品报告中各项目说明文字部分仅供参考，作品报告书撰写完毕后，请删除所有说明文字。(本页不删除) \par}%
+{\zihao{-4}\song 4.\enspace 作品报告模板里已经列的内容仅供参考，作者可以在此基础上增加内容或对文档结构进行微调。 \par}%
+{\zihao{-4}\song 5.\enspace 为保证网评的公平、公正，作品报告中应避免出现作者所在学校、院系和指导教师等泄露身份的信息。 \par}%
 \newpage
 %{\zihao{4}\noindent\begin{tabularx}{\textwidth}{cXcX@{}}
 %\mcm@numberpage@string@headname & & \mcm@numberpage@string@allcountrynum&\\[-5pt]
@@ -499,32 +504,41 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 中文标题格式设置
 % 目录深度
 \setcounter{secnumdepth}{3}
+
 % 节标题格式, 居中, 使用\chinese命令修改计数器
 \def\@seccntformat#1{\csname the#1\endcsname\ }
-\renewcommand\thesection{第\chinese{section}章 }
+
+
+%\renewcommand\thesection{ 第\chinese{section}章 }
 \renewcommand\thesubsection{\arabic{section}\thinspace.\thinspace\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
-\renewcommand\section{\@startsection{section}{1}{\z@}%
- 	{-3.5ex \@plus -1ex \@minus -.2ex}%
-	{2.3ex \@plus.2ex}%
-	{\centering\normalfont\Large\bfseries\heiti\zihao{3}}}
-%	{\centering\normalfont\Large\bfseries}}
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-	{-3.25ex\@plus -1ex \@minus -.2ex}%
-	{1.5ex \@plus .2ex}%
-	{\normalfont\large\bfseries\heiti\zihao{4}}}
-\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
-	{-3.25ex\@plus -1ex \@minus -.2ex}%
-	{1.5ex \@plus .2ex}%
-	{\normalfont\normalsize\bfseries\heiti\zihao{-4}}}
-\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
-	{3.25ex \@plus1ex \@minus.2ex}%
-	{-1em}%
-	{\normalfont\normalsize\bfseries}}
-\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
-	 {3.25ex \@plus1ex \@minus .2ex}%
-	 {-1em}%
-	 {\normalfont\normalsize\bfseries}}
+
+%\renewcommand\section{\@startsection{section}{1}{\z@}%
+% 	{-3.5ex \@plus -1ex \@minus -.2ex}%
+%	{2.3ex \@plus.2ex}%
+%	{\centering\normalfont\Large\bfseries\heiti\zihao{3}}}
+%%	{\centering\normalfont\Large\bfseries}}
+%\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+%	{-3.25ex\@plus -1ex \@minus -.2ex}%
+%	{1.5ex \@plus .2ex}%
+%	{\normalfont\large\bfseries\heiti\zihao{4}}}
+%\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+%	{-3.25ex\@plus -1ex \@minus -.2ex}%
+%	{1.5ex \@plus .2ex}%
+%	{\normalfont\normalsize\bfseries\heiti\zihao{-4}}}
+%\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+%	{3.25ex \@plus1ex \@minus.2ex}%
+%	{-1em}%
+%	{\normalfont\normalsize\bfseries}}
+%\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+%	 {3.25ex \@plus1ex \@minus .2ex}%
+%	 {-1em}%
+%	 {\normalfont\normalsize\bfseries}}
+
+
+\titleformat{\section}{\centering\normalfont\Large\bfseries\heiti\zihao{3}}{第\chinese{section}章}{0.3em}{}	
+\titleformat{\subsection}{\normalfont\large\bfseries\heiti\zihao{4}}{\thesubsection}{0.3em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\heiti\zihao{-4}}{\thesubsubsection}{0.3em}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Define new environment and command
@@ -722,17 +736,37 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \endquotation
 }
 
-%设置目录格式
+% 设置目录格式
 \phantomsection\addcontentsline{toc}{section}{\heiti \zihao{4} 摘要}\tolerance=500 %将摘要放进目录
 %\phantomsection\addcontentsline{toc}{section}{\zihao{4} Abstract}\tolerance=500 %将摘要放进目录 
+
 % 节的目录格式
- \titlecontents{section}[0pt]{\vspace{2mm} \heiti \zihao{4}}
- {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
-% % 小节的目录格式
- \titlecontents{subsection}[30pt]{\song\zihao{5}}
- {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
- \titlecontents{subsubsection}[55pt]{\song\zihao{5}}
- {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+%\renewcommand\thesection{ 第\chinese{section}章 }
+\titlecontents{section}[0pt]{\vspace{2mm} \heiti \zihao{4}}
+%{\thecontentslabel \hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+{第\zhnumber{\thecontentslabel} 章 \hskip.5em}{}{\titlerule*[0.4pc]{.}\contentspage}
+
+% 小节的目录格式
+\titlecontents{subsection}[22pt]{\vspace{-0.15cm}\song\fontsize{10.5pt}{\baselineskip}}
+{\thecontentslabel\hskip.5em}{}{\titlerule*[0.4pc]{.}\contentspage}
+\titlecontents{subsubsection}[44pt]{\vspace{-0.15cm}\song\fontsize{10.5pt}{\baselineskip}}
+{\thecontentslabel\hskip.5em}{}{\titlerule*[0.4pc]{.}\contentspage}
+
+% 设置目录行距
+%\setlength\cftbeforesecskip{0em}
+%\setlength\cftbeforesubsecskip{0em}
+
+% 图目录和表目录格式（如果不需要请注释）
+\renewcommand{\listfigurename}{图 \enspace 目录}
+\renewcommand{\cftfigfont}{\zihao{5}}
+\renewcommand{\cftfigpresnum}{图}
+\renewcommand{\cftfignumwidth}{1.2cm}
+
+\renewcommand{\listtablename}{表 \enspace 目录}
+\renewcommand{\cfttabfont}{\zihao{5}}
+\renewcommand{\cfttabpresnum}{表}
+\renewcommand{\cfttabnumwidth}{1.2cm}
+
 
 % 上标文献
 \newcommand{\upcite}[1]{$^{\mbox{\scriptsize \cite{#1}}}$}
