@@ -21,6 +21,8 @@
 
 - 其余格式（图片，三线表，公式，参考文献）请参考CUMCMThesis exmple https://github.com/latexstudio/CUMCMThesis
 
+如果该项目对您有所帮助，欢迎:star:
+
 ## 特别鸣谢
 
 CUMCMThesis项目：https://github.com/latexstudio/CUMCMThesis
@@ -31,4 +33,4 @@ CUMCMThesis项目：https://github.com/latexstudio/CUMCMThesis
 
 ## News
 
-:star:  我们的作品“**PoliScope：安卓应用隐私政策与权限调用一致性合规检测系统**”获第十五届全国大学生信息安全竞赛作品赛 **一等奖/最具创业价值奖**，感谢队友们一路以来的支持~
+:sparkles: 我们的作品“**PoliScope：安卓应用隐私政策与权限调用一致性合规检测系统**”获第十五届全国大学生信息安全竞赛作品赛 **一等奖/最具创业价值奖**，感谢队友们一路以来的支持~
