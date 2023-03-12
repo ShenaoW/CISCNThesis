@@ -1,7 +1,7 @@
 
 # 全国大学生信息安全竞赛作品赛 非官方 LaTex 论文模板 
 
-## 说明
+## 使用说明
 
 本项目参考数模国赛模板CUMCMThesis修改而来，旨在为LaTex er提供一份简易模板，使大家专注于论文的写作, 而不用花费过多精力在格式的定制和调整上。
 
@@ -21,7 +21,7 @@
 
 - 其余格式（图片，三线表，公式，参考文献）请参考CUMCMThesis exmple https://github.com/latexstudio/CUMCMThesis
 
-**如果该项目对您有所帮助，欢迎点亮**:star:
+如果该项目对您有所帮助，欢迎点亮:star:, 如有疑问，请联系shenaowang@foxmail.com
 
 ## 特别鸣谢
 
