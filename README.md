@@ -21,7 +21,7 @@
 
 - 其余格式（图片，三线表，公式，参考文献）请参考CUMCMThesis exmple https://github.com/latexstudio/CUMCMThesis
 
-如果该项目对您有所帮助，欢迎:star:
+**如果该项目对您有所帮助，欢迎点亮**:star:
 
 ## 特别鸣谢
 
