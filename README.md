@@ -17,8 +17,8 @@
 
 - 添加页眉页脚，图表目录（Updated on May 24）
 
-- 其余格式（图片，三线表，公式，参考文献）请参考CUMCMThesis exmple https://github.com/latexstudio/CUMCMThesis/blob/master/example.pdf
+- 其余格式（图片，三线表，公式，参考文献）请参考CUMCMThesis exmple https://github.com/latexstudio/CUMCMThesis
 
 特别鸣谢：CUMCMThesis项目：https://github.com/latexstudio/CUMCMThesis
 
-郑重声明：本项目并非官方模板，仅作为分享和参考，并不确保所有格式准确无误。如需使用本项目，请仔细对比官方模板仔细检查格式，一切后果与本项目无关，概不负责。如果有发现格式错误，也欢迎提出Issue，我会尽可能地及时修改。
+免责声明：本项目并非官方模板，仅作为分享和参考，并不确保所有格式准确无误。如需使用本项目，请仔细对比官方模板仔细检查格式，如果有发现格式错误，也欢迎提出Issue，我会尽可能地及时修改。
