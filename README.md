@@ -23,7 +23,7 @@
 
 如果该项目对您有所帮助，欢迎点亮:star:， 如使用过程中有任何疑问，请联系shenaowang@foxmail.com
 
-## 特别鸣谢
+## 致谢
 
 CUMCMThesis项目：https://github.com/latexstudio/CUMCMThesis
 
