@@ -34,3 +34,5 @@ CUMCMThesis项目：https://github.com/latexstudio/CUMCMThesis
 ## News
 
 :sparkles: 我们的作品“**PoliScope：安卓应用隐私政策与权限调用一致性合规检测系统**”获第十五届全国大学生信息安全竞赛作品赛 **一等奖/最具创业价值奖**，感谢队友们一路以来的支持~
+:sparkles: 由我协助指导的作品“**MiniDroid：移动端小程序隐私政策与权限调用一致性检测系统**”蝉联第十六届全国大学生信息安全竞赛作品赛 **一等奖/最具创新创业价值奖**。在PoliScope的基础上，MiniDroid解决了移动端小程序静态与动态分析中的诸多挑战，这标志着我们在泛移动应用与新兴软件系统合规检测中的突破进展. By the way, the latex template CISCNThesis in this repo also contributes. 恭喜学弟学妹们~
+
